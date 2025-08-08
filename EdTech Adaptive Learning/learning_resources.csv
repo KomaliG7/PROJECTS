@@ -1,0 +1,27 @@
+subject,title,url,difficulty,type,description
+Math,Basic Addition,https://youtu.be/addition,easy,video,Introduction to simple addition
+Math,Algebra Basics,https://youtu.be/algebra,medium,video,Understanding algebraic expressions
+Math,Calculus for Beginners,https://youtu.be/calculus,hard,video,Introduction to derivatives and integrals
+Math,Multiplication Tricks,https://youtu.be/multiply,easy,video,Fun ways to multiply numbers quickly
+Math,Geometry Essentials,https://youtu.be/geometry,medium,video,Learn about shapes and angles
+Math,Advanced Integrals,https://youtu.be/integrals,hard,video,Solving complex integrals
+Science,Photosynthesis Explained,https://youtu.be/photosynthesis,easy,video,How plants make food
+Science,Newton's Laws,https://youtu.be/newton,medium,video,Laws of motion explained with animations
+Science,Quantum Physics Intro,https://youtu.be/quantum,hard,video,Basics of quantum mechanics
+Science,The Water Cycle,https://youtu.be/watercycle,easy,video,Stages of the water cycle
+Science,Periodic Table Overview,https://youtu.be/periodic,medium,video,Understanding elements and their groups
+Science,Relativity Theory,https://youtu.be/relativity,hard,video,Introduction to Einstein's relativity
+English,Common Nouns,https://youtu.be/nouns,easy,video,Learn about nouns and examples
+English,Essay Writing,https://youtu.be/essay,medium,video,Structure of a good essay
+English,Shakespeare's Plays,https://youtu.be/shakespeare,hard,video,Deep dive into Shakespearean literature
+English,Verb Tenses,https://youtu.be/verbs,easy,video,"Understanding past, present, and future tenses"
+English,Persuasive Writing,https://youtu.be/persuasive,medium,video,How to write convincing arguments
+English,Advanced Grammar,https://youtu.be/grammar,hard,video,Complex sentence structures
+History,World War I,https://youtu.be/ww1,medium,video,Key events and causes of WWI
+History,Ancient Egypt,https://youtu.be/egypt,easy,video,Overview of Egyptian civilization
+History,Cold War Explained,https://youtu.be/coldwar,hard,video,Understanding the global tension era
+History,Renaissance Period,https://youtu.be/renaissance,medium,video,Art and science in the Renaissance
+History,French Revolution,https://youtu.be/frenchrev,hard,video,Causes and effects of the revolution
+Geography,Continents & Oceans,https://youtu.be/continents,easy,video,Learn all 7 continents and 5 oceans
+Geography,Weather & Climate,https://youtu.be/weather,medium,video,Difference between weather and climate
+Geography,Tectonic Plates,https://youtu.be/plates,hard,video,Earthquake and volcano mechanisms
