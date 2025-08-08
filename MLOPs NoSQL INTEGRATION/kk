@@ -1,0 +1,14 @@
+@app.route('/students/<id>', methods=['PUT'])
+def update_student(id):
+    data=request.get_json()
+    result= Collection.update_one({"_id":ObjectId(id)},{"$set": data})
+    if result.modified_count:
+        return jsonify({"message":"Student updated"})
+    return jsonify({"error": "update failed"}), 404
+
+@app.route('/deleteStudents/<id>', methods=['DELETE'])
+def delete_student(id):
+    result= Collection.delete_one({"_id":ObjectId(id)})
+    if result.deleted_count:
+        return jsonify({"message":"Student deleted"})
+    return jsonify({"error": "student not found"}), 404
