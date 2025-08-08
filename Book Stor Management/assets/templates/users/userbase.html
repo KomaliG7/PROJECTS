@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bookly | Explore, Read, Repeat</title>
+
+  <!-- Meta Info -->
+  <meta name="description" content="Bookstore built for readers by readers" />
+  <meta name="author" content="Bookly Team" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'user-style.css' %}" />
+
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body class="font-[Nunito] bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center p-4">
+      <a href="{% url 'UserHome' %}">
+        <img src="{% static 'images/main-logo.png' %}" alt="Bookly Logo" class="h-10" />
+      </a>
+      <div class="flex space-x-6 text-sm font-medium">
+        <a href="{% url 'AccountView' %}" class="hover:text-indigo-600"><i class="icon icon-user mr-1"></i> Account</a>
+        <a href="{% url 'CartView' %}" class="hover:text-indigo-600"><i class="icon icon-clipboard mr-1"></i> Cart (0 $)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="bg-gray-50">
+    <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center space-x-4 py-3 text-sm font-semibold text-gray-700">
+      <a href="{% url 'UserHome' %}" class="hover:text-indigo-600">Home</a>
+      <a href="#featured-books" class="hover:text-indigo-600">Featured</a>
+      <a href="#popular-books" class="hover:text-indigo-600">Popular</a>
+      <a href="#special-offer" class="hover:text-indigo-600">Offers</a>
+      <a href="#latest-blog" class="hover:text-indigo-600">Articles</a>
+      <a href="#download-app" class="hover:text-indigo-600">App</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-screen-xl mx-auto p-4">
+    {% block content %}
+    <!-- Your dynamic sections go here -->
+    {% endblock %}
+  </main>
+
+  <!-- Subscribe Section -->
+  <section class="bg-indigo-50 py-8">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
+      <div>
+        <h2 class="text-xl font-bold mb-2">Subscribe to our newsletter</h2>
+        <p class="text-sm">Get updates, deals, and literary inspiration sent straight to your inbox.</p>
+      </div>
+      <form class="mt-4 md:mt-0 flex space-x-2">
+        <input type="email" name="email" class="p-2 rounded border" placeholder="Your email" />
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12">
+    <div class="max-w-screen-xl mx-auto py-10 grid grid-cols-2 md:grid-cols-5 gap-6 text-sm">
+      <div>
+        <img src="{% static 'images/main-logo.png' %}" alt="Bookly Logo" class="mb-4 h-10" />
+        <p class="text-gray-600">Discover your next favorite book, one click at a time.</p>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-2">About Us</h5>
+        <ul class="space-y-1 text-gray-600">
+          <li><a href="#">Vision</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Service Terms</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-2">Discover</h5>
+        <ul class="space-y-1 text-gray-600">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Authors</a></li>
+          <li><a href="#">Subjects</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-2">My Account</h5>
+        <ul class="space-y-1 text-gray-600">
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">View Cart</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-2">Help</h5>
+        <ul class="space-y-1 text-gray-600">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Report Issue</a></li>
+          <li><a href="#">Suggest Edits</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-gray-100 text-center py-4 text-xs text-gray-500">
+      &copy; 2025 Bookly. Crafted with ❤️ using Django + Tailwind. Design by <a href="https://www.templatesjungle.com/" class="underline">TemplatesJungle</a>
+    </div>
+  </footer>
+
+  {% block extra_scripts %}
+  <script src="{% static 'js/plugins.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  {% endblock %}
+</body>
+</html>

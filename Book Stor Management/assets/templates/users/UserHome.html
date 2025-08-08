@@ -1,0 +1,19 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+{% block contents %}
+<section class="py-5">
+  <div class="container">
+    <div class="card shadow-sm border-0 rounded">
+      <div class="card-body px-4 py-3 text-center">
+        <h4 class="text-primary fw-bold mb-4">🏠 Welcome to Your Dashboard</h4>
+        
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success mb-2">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

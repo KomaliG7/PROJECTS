@@ -1,0 +1,108 @@
+{% extends 'admins/adminbase.html' %}
+{% load static %}
+{% block contents %}
+<section>
+    <div class="container-fluid">
+        <div class="full slider_cont_section">
+            <h3 class="large">📚 Add New Book to Inventory</h3>
+            <form action="{% url 'AddBookAction' %}" method="POST" enctype="multipart/form-data" class="text-primary" style="width:100%">
+                {% csrf_token %}
+                
+                <!-- Basic Book Details -->
+                <fieldset class="border p-3 mb-4">
+                    <legend class="w-auto">Basic Details</legend>
+
+                    <div class="form-group">
+                        <label for="bookname">Book Name</label>
+                        <input type="text" name="bookname" id="bookname" class="form-control" placeholder="Enter Book Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookid">Book ID</label>
+                        <input type="text" name="bookid" id="bookid" class="form-control" placeholder="Unique Book Identifier" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookauthor">Author</label>
+                        <input type="text" name="bookauthor" id="bookauthor" class="form-control" placeholder="Author Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publishyear">Published Year</label>
+                        <input type="number" name="publishyear" id="publishyear" class="form-control" placeholder="e.g., 2022" min="1500" max="2099" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edition">Edition</label>
+                        <input type="text" name="edition" id="edition" class="form-control" placeholder="e.g., Second Edition">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <input type="text" name="language" id="language" class="form-control" placeholder="e.g., English, Hindi">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" name="genre" id="genre" class="form-control" placeholder="e.g., Fiction, Science, Biography">
+                    </div>
+                </fieldset>
+
+                <!-- Pricing & Stock -->
+                <fieldset class="border p-3 mb-4">
+                    <legend class="w-auto">Inventory Info</legend>
+
+                    <div class="form-group">
+                        <label for="price">Price (INR)</label>
+                        <input type="number" name="price" id="price" class="form-control" placeholder="Enter Price" min="0" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Stock Quantity</label>
+                        <input type="number" name="stock" id="stock" class="form-control" placeholder="Available Units" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select name="status" id="status" class="form-control" required>
+                            <option value="">-- Select Status --</option>
+                            <option value="Available">Available</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                            <option value="Preorder">Preorder</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Description & Image -->
+                <fieldset class="border p-3 mb-4">
+                    <legend class="w-auto">Media & Description</legend>
+
+                    <div class="form-group">
+                        <label for="description">Book Description</label>
+                        <textarea name="description" id="description" rows="4" class="form-control" placeholder="Brief summary, highlights, target audience..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Imagepath">Cover Image</label>
+                        <input type="file" name="Imagepath" id="Imagepath" class="form-control-file" required>
+                    </div>
+                </fieldset>
+
+                <!-- Submission -->
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-lg btn-primary py-2 px-4">📥 Submit Book Details</button>
+                </div>
+
+                <!-- Feedback Messages -->
+                {% if messages %}
+                <div class="form-group">
+                    {% for message in messages %}
+                    <div class="alert alert-info text-success">{{ message }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+{% block contents %}
+<section class="py-5">
+  <div class="container">
+    <div class="card shadow-sm border-0">
+      <div class="card-body px-4 py-3">
+        <h3 class="text-primary fw-bold mb-4 text-center">🛒 Your Cart</h3>
+
+        {% if data %}
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped align-middle text-center">
+            <thead class="table-dark">
+              <tr>
+                <th>S.No</th>
+                <th>User</th>
+                <th>Book Name</th>
+                <th>Book ID</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in data %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.username }}</td>
+                <td>{{ i.bookname }}</td>
+                <td>{{ i.bookid }}</td>
+                <td>₹{{ i.price }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>₹{{ i.total }}</td>
+                <td>
+                  <a href="{% url 'DeleteCartItem' i.id %}" class="btn btn-outline-danger btn-sm">
+                    🗑 Remove
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-end mt-3">
+          <a href="{% url 'CheckOut' %}" class="btn btn-success btn-lg">
+            ✅ Proceed to Checkout
+          </a>
+        </div>
+        {% else %}
+        <div class="alert alert-info text-center">Your cart is currently empty.</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

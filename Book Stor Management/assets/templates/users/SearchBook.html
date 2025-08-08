@@ -1,0 +1,44 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+{% block contents %}
+<section class="py-5">
+  <div class="container">
+    <div class="card shadow-sm border-0 rounded">
+      <div class="card-body px-4 py-3">
+        <h4 class="text-primary fw-bold text-center mb-4">🔍 Search for Books</h4>
+
+        <form method="GET" action="{% url 'SearchBooks' %}" class="d-flex justify-content-center gap-3 mb-3">
+          <input type="text" id="searchQuery" name="query" value="{{ query }}" placeholder="Search by book name, author, or ID"
+                 class="form-control w-50" autocomplete="off" required>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <ul id="suggestionsList" class="list-group mb-3"></ul>
+
+        {% if messages %}
+        <div class="text-center">
+          {% for message in messages %}
+            <div class="alert alert-success mb-2">{{ message }}</div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if results %}
+          <div class="mt-4">
+            <h5 class="fw-semibold">📚 Results:</h5>
+            <ul class="list-group">
+              {% for book in results %}
+                <li class="list-group-item">
+                  <strong>{{ book.name }}</strong> by {{ book.author }} (ID: {{ book.id }})
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% elif query %}
+          <p class="text-muted mt-4">No results found for "{{ query }}".</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

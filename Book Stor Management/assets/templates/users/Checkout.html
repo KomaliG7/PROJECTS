@@ -1,0 +1,40 @@
+{% extends 'admins/adminbase.html' %}
+{% load static %}
+{% block contents %}
+<section class="py-5">
+  <div class="container">
+    <div class="card shadow border-0 rounded-lg">
+      <div class="card-body px-5 py-4">
+        <h3 class="text-primary text-center mb-4 fw-bold">🛒 Process Checkout</h3>
+
+        <form action="{% url 'CheckOutAction' %}" method="POST" enctype="multipart/form-data" novalidate>
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label for="delivery_address" class="form-label">Delivery Address</label>
+            <textarea name="delivery_address" id="delivery_address" rows="3" class="form-control" placeholder="Enter Delivery Address" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="payment_mode" class="form-label">Payment Mode</label>
+            <select name="payment_mode" id="payment_mode" class="form-control" required>
+              <option value="">Select Payment Mode</option>
+              <option value="Card">Credit/Debit Card</option>
+              <option value="Cash on Delivery">Cash on Delivery</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label for="card_details" class="form-label">Card Details</label>
+            <input type="text" name="card_details" id="card_details" class="form-control" placeholder="Card Number (if using Card)">
+          </div>
+
+          <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-success btn-lg text-white">Place Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
